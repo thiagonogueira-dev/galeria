@@ -27,7 +27,9 @@ $.fn.cityButtons = function(){
 
     const btns = Array.from(cities).map(city =>{
         const btn = $('<button>')
-            .addClass(['btn', 'btn-info'])
+            .addClass(['btn', 'btn-info', 'mt-2', 'ml-1'])
+            .css('border-radius', '5px')
+            .css('max-width', '150px')
             .html(city)
         btn.on('click', function(e){
             $('.active').removeClass('active');
@@ -38,7 +40,9 @@ $.fn.cityButtons = function(){
     });
 
     const btnAll = $('<button>')
-        .addClass(['btn', 'btn-info', 'active'])
+        .addClass(['btn', 'btn-info', 'active', 'mt-2', 'ml-1'])
+        .css('border-radius', '5px')
+        .css('max-width', '130px')
         .html('Todas');
     btnAll.on('click',  function(e){
         $('.active').removeClass('active');
@@ -47,7 +51,7 @@ $.fn.cityButtons = function(){
     });
     btns.unshift(btnAll);
 
-    const btnGroup = $('<div>').addClass('btn-group');
+    const btnGroup = $('<div>').addClass('btn-group row d-flex justify-content-center');
     btnGroup.append(btns);
 
     this.html(btnGroup)
